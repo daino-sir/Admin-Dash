@@ -1,40 +1,62 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import DashboardLayout from 'src/layouts/DashboardLayout';
-import MainLayout from 'src/layouts/MainLayout';
-import AccountView from 'src/views/account/AccountView';
-import CustomerListView from 'src/views/customer/CustomerListView';
-import DashboardView from 'src/views/reports/DashboardView';
-import LoginView from 'src/views/auth/LoginView';
-import NotFoundView from 'src/views/errors/NotFoundView';
-import ProductListView from 'src/views/product/ProductListView';
-import RegisterView from 'src/views/auth/RegisterView';
-import SettingsView from 'src/views/settings/SettingsView';
+import DashboardIcon from "./assets/DashboardIcon.svg";
+import DashboardIconActive from "./assets/DashboardIconActive.svg";
+import TransactionsIcon from "./assets/TransactionsIcon.svg";
+import TransactionsIconActive from "./assets/TransactionsIconActive.svg";
+import SecureIcon from "./assets/SecureIcon.svg";
+import SecureIconActive from "./assets/SecureIconActive.svg";
+import SettingsIcon from "./assets/SettingsIcon.svg";
+import SettingsIconActive from "./assets/SettingsIconActive.svg";
+import SignOutIcon from "./assets/SignOutIcon.svg";
+import AccountsIcon from "./assets/AccountsIcon.svg";
+import AccountsIconActive from "./assets/AccountsIconActive.svg";
+import Dashboard from "./pages/Dashboard";
+import Accounts from "./pages/Accounts";
+import Transactions from "./pages/Transactions";
+import Secure from "./pages/Secure";
+import Settings from "./pages/Settings";
 
 const routes = [
   {
-    path: 'app',
-    element: <DashboardLayout />,
-    children: [
-      { path: 'account', element: <AccountView /> },
-      { path: 'customers', element: <CustomerListView /> },
-      { path: 'dashboard', element: <DashboardView /> },
-      // { path: 'products', element: <ProductListView /> },
-      { path: 'settings', element: <SettingsView /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
+    label: "Dashboard",
+    path: "/",
+    icon: DashboardIcon,
+    activeIcon: DashboardIconActive,
+    component: Dashboard,
   },
   {
-    path: '/',
-    element: <MainLayout />,
-    children: [
-      { path: 'login', element: <LoginView /> },
-      { path: 'register', element: <RegisterView /> },
-      { path: '404', element: <NotFoundView /> },
-      { path: '/', element: <Navigate to="/login" /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
-  }
+    label: "Accounts",
+    path: "/accounts",
+    icon: AccountsIcon,
+    activeIcon: AccountsIconActive,
+    component: Accounts,
+  },
+  {
+    label: "Transactions",
+    path: "/transactions",
+    icon: TransactionsIcon,
+    activeIcon: TransactionsIconActive,
+    component: Transactions,
+  },
+  {
+    label: "Secure",
+    path: "/secure",
+    icon: SecureIcon,
+    activeIcon: SecureIconActive,
+    component: Secure,
+  },
+  {
+    label: "Settings",
+    path: "/settings",
+    icon: SettingsIcon,
+    activeIcon: SettingsIconActive,
+    component: Settings,
+  },
+  {
+    label: "Sign Out",
+    path: "/sign-out",
+    icon: SignOutIcon,
+    activeIcon: SignOutIcon,
+  },
 ];
 
 export default routes;
